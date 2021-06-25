@@ -11,6 +11,8 @@ public class App {
         System.out.println("");
 
         double moneyCont = 0;
+        int cond = 0;
+
         System.out.print("Enter account number: ");
         int numberC = ler.nextInt();
         ler.nextLine();
@@ -24,37 +26,46 @@ public class App {
         if (dep == 'y') {
             System.out.print("Enter initial deposit value: ");
             moneyCont = ler.nextDouble();
-        } else if (dep == 'n') {
-            moneyCont = 0;
+            System.out.println();
+        } else if(dep == 'n'){
+            System.out.println();
         }
+        Back mon = new Back(nameH, numberC, moneyCont);
 
-        System.out.println();
 
-        Back construtorP = new Back(nameH, numberC, moneyCont);
+        while (cond != 10) {
+            mon.menu();
+            cond = ler.nextInt();
 
-        System.out.println("Accont data:");
-        System.out.println(construtorP);
-
-        System.out.println();
-
-        System.out.print("Enter a deposit value: ");
-        moneyCont = ler.nextDouble();
-        construtorP.addDeposit(moneyCont);
-        System.out.println("Updated account data:");
-        //nameH = ler.next();
-        //construtorP.setNameH(nameH);
-        System.out.println(construtorP);
-
-        System.out.println();
-
-        System.out.print("Enter a withdraw value: ");
-        moneyCont = ler.nextDouble();
-        construtorP.remMoney(moneyCont);
-        System.out.println("Updated account data:");
-        //nameH = ler.next();
-        //construtorP.setNameH(nameH);
-        System.out.println(construtorP);
-
+            if (cond == 1) {
+                System.out.print("\nValue for deposit: ");
+                moneyCont = ler.nextDouble();
+                mon.addDeposit(moneyCont);
+                System.out.println(mon);
+                continue;
+            } else if (cond == 2) {
+                System.out.print("\nEnter a withdraw value: ");
+                moneyCont = ler.nextDouble();
+                mon.remMoney(moneyCont);
+                System.out.println(mon);
+                continue;
+            } else if (cond == 3) {
+                System.out.print("\nAccount name Update: ");
+                ler.nextLine();
+                nameH = ler.nextLine();
+                mon.setNameH(nameH);
+                System.out.println(mon);
+                continue;
+            } else if (cond == 4) {
+                System.out.println("\n" + mon);
+                continue;
+            } else if (cond == 10) {
+                System.out.println("\n" + mon);
+            } else{
+                System.out.println("\nenter a valid value\n");
+                continue;
+            }
+        }
         ler.close();
     }
 }
