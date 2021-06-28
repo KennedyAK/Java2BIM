@@ -11,10 +11,6 @@ public class Back {
         this.moneyCont = moneyCont;
     }
 
-    public Back(double moneyCont) {
-        this.moneyCont = moneyCont;
-    }
-
     public String getNameH() {
         return nameH;
     }
@@ -39,13 +35,17 @@ public class Back {
         this.moneyCont += moneyCont;
     }
 
-    public void remMoney(double moneyCont) {
-        this.moneyCont -= (moneyCont + 5.00);
+    public void remMoney(double saq) {
+        if(saq <= this.moneyCont && this.moneyCont != -5){
+        this.moneyCont -= (saq + 5.00);
+        }else{
+            System.out.println("There's no money suficient in the account!!\n");
+        }
     }
 
     public void menu() {
         System.out
-                .println("Menu: \n" + "Deposit = 1: \n" + "withdraw = 2: \n" + "Update Account = 3 \n" + "Status = 4 \n" + "Exit = 10:");
+                .println("Informe o número correspondente para o que deseja fazer: \n" + "1 - Sacar: \n" + "2 - Depositar: \n" + "3 - Alterar nome: \n" + "4 - Status: \n" + "0 - Sair do sistema \n");
     }
 
     public String toString() {
