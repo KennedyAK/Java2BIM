@@ -6,15 +6,15 @@ public class ex07 {
 
     public static void main(String[] args) {
         Scanner ler = new Scanner(System.in);
-        System.out.println();
+        System.out.print("\nNumber: ");
         int number = ler.nextInt();
 
-        int fatorial = 0;
+        int i = 1;
+        int fatorial = number;
 
-        while (number != 0) {
-            int i = number-1;
-                fatorial =  number * i;
-                number--;
+        while (i != number) {
+            fatorial *= i;
+            i++;
         }
 
         System.out.println("Fatorial de " + number + " é: " + fatorial);
