@@ -36,16 +36,18 @@ public class Back {
     }
 
     public void remMoney(double saq) {
-        if(saq <= this.moneyCont && this.moneyCont != -5){
-        this.moneyCont -= (saq + 5.00);
-        }else{
+        if (saq <= this.moneyCont && saq > 0) {
+            this.moneyCont -= (saq + 5.00);
+        } else if (saq > this.moneyCont) {
             System.out.println("There's no money suficient in the account!!\n");
+        } else if (saq < 0) {
+            System.out.println("Enter value valied!!\n");
         }
     }
 
     public void menu() {
-        System.out
-                .println("Informe o número correspondente para o que deseja fazer: \n" + "1 - Sacar: \n" + "2 - Depositar: \n" + "3 - Alterar nome: \n" + "4 - Status: \n" + "0 - Sair do sistema \n");
+        System.out.println("Informe o número correspondente para o que deseja fazer: \n" + "1 - Sacar: \n"
+                + "2 - Depositar: \n" + "3 - Alterar nome: \n" + "4 - Status: \n" + "0 - Sair do sistema \n");
     }
 
     public String toString() {

@@ -38,7 +38,7 @@ public class App {
             double saq = 0;
 
             if (cond == 1) {
-                if (moneyCont > 0){
+                if (mon.getMoneyCont() > 0){
                     System.out.print("\nValue for widthdraw: ");
                     saq = ler.nextDouble();
                     mon.remMoney(saq);
